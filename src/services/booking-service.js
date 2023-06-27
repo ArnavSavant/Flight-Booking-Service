@@ -5,8 +5,8 @@ const db = require("../models");
 const { serverConfig } = require("../config");
 const AppError = require("../utils/errors/app-error");
 
-const { Enum } = require("../utils/common");
-const { BOOKED, CANCELLED } = Enum.BOOKING_STATUS;
+const Enum = require("../utils/common/enum");
+const { BOOKED, CANCELLED, INITIATED, PENDING } = Enum.BOOKING_STATUS;
 
 const bookingRepository = new BookingRepository();
 
@@ -79,7 +79,7 @@ async function makePayment(data) {
 		);
 		await transaction.commit();
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 		await transaction.rollback();
 		throw error;
 	}
@@ -109,7 +109,20 @@ async function cancelBooking(bookingId) {
 		throw error;
 	}
 }
+
+async function cancelOldBookings() {
+	try {
+		const time = new Date(Date.now() - 1000 * 300); //5mins ago
+		const response = await bookingRepository.cancelOldBookings(time);
+		return response;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+}
+
 module.exports = {
 	createBooking,
 	makePayment,
+	cancelOldBookings
 };

@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 
-const { Enum } = require("../utils/common");
+const Enum = require("../utils/common/enum");
 const { BOOKED, CANCELLED, INITIATED, PENDING } = Enum.BOOKING_STATUS;
 module.exports = (sequelize, DataTypes) => {
 	class Booking extends Model {
