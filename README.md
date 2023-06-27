@@ -49,17 +49,11 @@ To set up the project, follow these steps:
 3. In the root directory, create a `.env` file and add the following environment variables:
    ```
    PORT=<port number of your choice>
-   ```
-   Example:
-   ```
-   PORT=4000
-   ```
-   
-   ```
    FLIGHT_SERVICE=<address of the server where flights service is hosted>
    ```
    Example:
    ```
+   PORT=4000
    FLIGHT_SERVICE = http://localhost:3000
    ```
 
