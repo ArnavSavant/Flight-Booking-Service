@@ -5,7 +5,7 @@ It is one of the microservice of the complete PROJECT which mimics the booking o
 ## Other Microservices
 - `flights-services`: https://github.com/ArnavSavant/Flight-Services
 - `flights-booking-services`: https://github.com/ArnavSavant/Flight-Booking-Service
-- `authentication-service`:  
+- `api-gateway`: https://github.com/ArnavSavant/API-Gateway
  
 ## Project Structure
 
@@ -52,7 +52,13 @@ To set up the project, follow these steps:
    ```
    Example:
    ```
-   PORT=3000
+   PORT=4000
+   ```
+   FLIGHT_SERVICE=<address of the server where flights service is hosted>
+   ```
+   Example:
+   ```
+   FLIGHT_SERVICE = http://localhost:3000
    ```
 
 4. Navigate to the `src` folder in your terminal and execute the following command to initialize Sequelize:
