@@ -57,7 +57,6 @@ async function makePayment(data) {
 			await cancelBooking(data.bookingId);
 			throw new AppError("The booking has expired", StatusCodes.BAD_REQUEST);
 		}
-		console.log(`${bookingDetails.totalCost} and ${data.totalCost}`);
 		if (bookingDetails.totalCost != data.totalCost) {
 			throw new AppError(
 				"The payment amount does not match",
