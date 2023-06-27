@@ -54,6 +54,8 @@ To set up the project, follow these steps:
    ```
    PORT=4000
    ```
+   
+   ```
    FLIGHT_SERVICE=<address of the server where flights service is hosted>
    ```
    Example:
